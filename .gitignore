@@ -1,0 +1,120 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Environment variables - NEVER COMMIT THESE
+.env
+.env.local
+.env.*
+!.env.example
+**/.env
+**/.env.local
+**/.env.*
+!**/.env.example
+apps/builder-service/.env
+apps/api/.env
+apps/agent/.env
+apps/web/.env
+
+# Build outputs
+dist
+out
+build
+.next
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs
+.vscode
+.idea
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Remotion
+remotion/out
+
+# Database files (user data, sensitive)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Builder Service Projects (User data)
+apps/builder-service/builder-projects
+apps/builder-service/data
+
+# Temp
+tmp
+temp
+*.swp
+*.swo
+*.log
+logs/
+nul
+
+# Brain / Memory (Agent)
+.gemini
+.agent
+brain
+
+# --- PRIVATE / TRADE SECRETS ---
+# Backend Service
+apps/builder-service/
+
+# Scanner Feature (Web)
+apps/web/src/app/scanner/
+apps/web/src/components/Scanner.tsx
+
+# Scripts & Internal Tools
+scripts/
+
+# Internal Documentation
+README-SCANNER.md
+SCANNER-FIXES.md
+WALLET_INFO.md
+investigate-output.txt
+investigation-done.txt
+m.md
+newguide.md
+retake-streamers-page_files/
+check-account-key.mjs
+check-creation-tx.mjs
+find-any-launch-pattern.mjs
+find-bags-program.mjs
+find-creation-smart.mjs
+find-mint-creation.mjs
+find-real-launches.mjs
+investigate.mjs
+verify-bags-token.mjs
+setup_vps.sh
+deploy_to_vps.ps1
+nginx.conf
+nginx_bagsscan.conf
+# Wallet files (private keys)
+*wallet*.json
+bagsscan-wallet.json
+deploy_bagsstudio.ps1
+
+# Relics / obsolete assets (pyre etc.)
+*pyre*
+
+# Media assets (large files)
+Bagsong.m4a
+BagsStudio.png
+bags-logo.webp
+
+# Private keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+
+packages/

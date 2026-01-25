@@ -1,0 +1,43 @@
+{
+  "name": "bagsscan-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:builder\"",
+    "dev:web": "npm run dev --workspace=@bagsscan/web",
+    "dev:api": "dotenv -e .env -- npm run dev --workspace=@bagsscan/api",
+    "dev:builder": "dotenv -e apps/builder-service/.env -- npm run dev --workspace=@bagsscan/builder-service",
+    "build": "npm run build --workspaces",
+    "start": "npm run start --workspaces",
+    "add-sample-token": "dotenv -e .env -- tsx scripts/add-sample-token.ts",
+    "backtest": "dotenv -e .env -- tsx scripts/run-backtest.ts",
+    "test-bags-api": "dotenv -e .env -- tsx scripts/test-bags-api.ts",
+    "find-launches": "dotenv -e .env -- tsx scripts/find-recent-launches.ts",
+    "investigate-token": "dotenv -e .env -- tsx scripts/investigate-token.ts",
+    "debug-parsing": "dotenv -e .env -- tsx scripts/debug-launch-parsing.ts",
+    "fix-web": "powershell -ExecutionPolicy Bypass -File scripts/fix-web-app.ps1",
+    "remotion:studio": "npx remotion studio remotion/index.ts",
+    "remotion:render": "npx remotion render remotion/index.ts BagsFullDemo out/bags-full-demo.mp4",
+    "remotion:render:mobile": "npx remotion render remotion/index.ts BagsFullDemo-Mobile out/bags-mobile.mp4",
+    "remotion:render:square": "npx remotion render remotion/index.ts BagsFullDemo-Square out/bags-square.mp4",
+    "remotion:render:scanner": "npx remotion render remotion/index.ts ScannerDemo out/scanner-demo.mp4",
+    "remotion:render:studio": "npx remotion render remotion/index.ts StudioDemo out/studio-demo.mp4",
+    "build:gh-pages": "cross-env NEXT_PUBLIC_MODE=coming_soon npm run build --workspace=@bagsscan/web"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.407",
+    "@remotion/player": "^4.0.407",
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
+    "dotenv-cli": "^11.0.0",
+    "remotion": "^4.0.407",
+    "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
