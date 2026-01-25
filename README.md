@@ -9,13 +9,13 @@
 ByDynkVWNYENQNYcZsrDMWEPSS2ZxYM922sPyaxsBAGS
 ```
 
-Bags.fm is an advanced platform for launching and managing meme coins on Solana.
+Bags.fm is the official interface for **BagsStudio**—an advanced platform for launching and managing meme coins on Solana.
 We are currently operating in **Stealth Mode** while the reality engine is reconstructed.
 
 ## 🟢 Status: ONLINE (V2 Construction)
 The Architect is preparing the next cycle.
 
-**[ENTER THE STUDIO](https://dutchiono.github.io/BagsStudio/)**
+**[ENTER THE STUDIO](https://bagsstudio.xyz)**
 *(Live capability demonstration)*
 
 ## Features (Coming Soon)

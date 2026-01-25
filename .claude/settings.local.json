@@ -68,7 +68,9 @@
       "Bash(wsl -e bash -c \"solana --version && which cargo-build-sbf && cargo-build-sbf --version\")",
       "Bash(wsl -e bash -c \"which solana || find ~ -name ''solana'' -type f 2>/dev/null | head -5\")",
       "Bash(wsl -e bash -c \"cd /mnt/c/Users/epj33/Desktop/BagsScanner/packages/bags-staking && export PATH=\"\"$HOME/.local/share/solana/install/active_release/bin:$PATH\"\" && rm -rf target/ && export CARGO_BUILD_SBF_USE_SYSTEM_CARGO=1 && anchor build 2>&1\")",
-      "Bash(wsl -e bash -c:*)"
+      "Bash(wsl -e bash -c:*)",
+      "Bash(wsl bash -ic \"cargo --version\")",
+      "Bash(wsl bash:*)"
     ]
   }
 }
