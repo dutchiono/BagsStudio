@@ -1,15 +1,6 @@
 module.exports = {
     apps: [
-        {
-            name: "bagsscan-api",
-            script: "npm",
-            args: "start --workspace=@bagsscan/api",
-            env: {
-                PORT: 3041,
-                NODE_ENV: "production",
-                ENV_PATH: "/var/www/bagsscan/.env"
-            }
-        },
+        // Scanner removed
         {
             name: "bagsscan-agent",
             script: "npm",

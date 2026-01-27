@@ -8,7 +8,7 @@ import path from 'path';
 const HELIUS_API_KEY = process.env.HELIUS_API_KEY;
 const SOLANA_RPC = HELIUS_API_KEY
     ? `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`
-    : (process.env.SOLANA_RPC || 'https://api.mainnet-beta.solana.com');
+    : (process.env.SOLANA_RPC || 'https://mainnet.helius-rpc.com/?api-key=10f7605c-3004-4638-9562-b911c4714150');
 // Use 'processed' commitment for faster log monitoring (onLogs)
 const connection = new Connection(SOLANA_RPC, 'processed');
 // Use 'confirmed' commitment for fetching transactions (getParsedTransaction requires at least 'confirmed')

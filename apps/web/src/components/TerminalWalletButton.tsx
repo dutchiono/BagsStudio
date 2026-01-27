@@ -19,7 +19,11 @@ export function TerminalWalletButton() {
                 color: '#00ff41',
                 border: '1px solid #00ff41',
                 fontFamily: 'monospace',
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                maxWidth: '100%',
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis'
             }} />
         </div>
     );

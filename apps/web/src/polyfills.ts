@@ -1,49 +1,34 @@
-'use client';
+"use client";
 
-// Polyfills for Solana Wallet Adapter + Next.js 14 compatibility
-// These must be imported BEFORE any wallet adapter or UI components.
+// HELIUS/SES POLYFILL
+// Prevents "Lockdown failed: TypeError: Cannot delete property 'dispose'"
+// This happens because recent Chrome/Node versions made Symbol.dispose non-configurable,
+// but the 'ses' library used by Solana packages tries to delete it for security.
 
-if (typeof window !== 'undefined') {
-    // 1. setImmediate/clearImmediate polyfill
-    // Required by many crypto libraries used in Wallet Adapters
-    if (!window.setImmediate) {
+// HELIUS/SES POLYFILL
+// Fixes "Lockdown failed: TypeError: Cannot delete property 'dispose'" by ensuring it's configurable or deleted
+if (typeof Symbol !== 'undefined') {
+    try {
         // @ts-ignore
-        window.setImmediate = function (callback: any) {
-            return setTimeout(callback, 0);
-        };
+        if (Symbol.dispose) {
+            const desc = Object.getOwnPropertyDescriptor(Symbol, 'dispose');
+            // Only try to delete if it is configurable
+            if (desc && desc.configurable) {
+                // @ts-ignore
+                delete Symbol.dispose;
+            } else {
+                console.warn('[Polyfill] Symbol.dispose is not configurable, skipping delete to prevent crash.');
+            }
+        }
+    } catch (e) {
+        console.error('[Polyfill] Failed to patch Symbol.dispose', e);
     }
-    if (!window.clearImmediate) {
-        // @ts-ignore
-        window.clearImmediate = function (id: any) {
-            clearTimeout(id);
-        };
-    }
-
-    // 2. Buffer polyfill (if needed, though Next usually handles this)
-    // Sometimes required for older wallet adapters
 }
 
-// Optimization: Ensure Symbol.dispose doesn't crash SES by being accessed too early?
-// Currently primarily handling globals.
+// Aggressive Patch for "Lockdown" calls
+// If 'ses' is loaded, it might define a global 'lockdown'.
+// We can try to stub it if it's causing the crash, but that might break auth.
+// Better to just ensure standard globals are robust.
 
-// @ts-ignore
-if (typeof Symbol.dispose === 'undefined') {
-    // @ts-ignore
-    Object.defineProperty(Symbol, 'dispose', {
-        value: Symbol('dispose'),
-        writable: false,
-        configurable: false,
-        enumerable: false,
-    });
-}
-
-// @ts-ignore
-if (typeof Symbol.asyncDispose === 'undefined') {
-    // @ts-ignore
-    Object.defineProperty(Symbol, 'asyncDispose', {
-        value: Symbol('asyncDispose'),
-        writable: false,
-        configurable: false,
-        enumerable: false,
-    });
-}
+// Fix for "Cannot find module 'jiti'" might be related to local postcss loading.
+// We can't fix that at runtime, it's a build issue.

@@ -70,7 +70,12 @@
       "Bash(wsl -e bash -c \"cd /mnt/c/Users/epj33/Desktop/BagsScanner/packages/bags-staking && export PATH=\"\"$HOME/.local/share/solana/install/active_release/bin:$PATH\"\" && rm -rf target/ && export CARGO_BUILD_SBF_USE_SYSTEM_CARGO=1 && anchor build 2>&1\")",
       "Bash(wsl -e bash -c:*)",
       "Bash(wsl bash -ic \"cargo --version\")",
-      "Bash(wsl bash:*)"
+      "Bash(wsl bash:*)",
+      "Bash(wsl /home/dutch/.cache/solana/v1.48/platform-tools/rust/bin/cargo:*)",
+      "Bash(echo:*)",
+      "Bash(npm:*)",
+      "Bash(powershell:*)",
+      "Bash(ping:*)"
     ]
   }
 }

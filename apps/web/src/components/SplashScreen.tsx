@@ -28,6 +28,8 @@ export default function SplashScreen() {
         }, 500); // 500ms fade out duration
     };
 
+
+
     if (!visible) return null;
 
     return (
@@ -41,6 +43,7 @@ export default function SplashScreen() {
                     muted
                     playsInline
                     onEnded={handleExit}
+                    onError={handleExit} // Auto-exit if 404/Missing file
                     className="absolute inset-0 w-full h-full object-cover"
                 />
             )}

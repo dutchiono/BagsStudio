@@ -89,7 +89,7 @@ const tokenScanner = new TokenScanner(db);
 let autoTrader: AutoTrader | null = null;
 const AGENT_PRIVATE_KEY = process.env.AGENT_PRIVATE_KEY;
 const BAGS_API_KEY = process.env.BAGS_API_KEY || process.env.BAGS_PARTNER_API_KEY;
-const SOLANA_RPC = process.env.SOLANA_RPC || process.env.SOLANA_RPC_URL || 'https://api.mainnet-beta.solana.com';
+const SOLANA_RPC = process.env.SOLANA_RPC || process.env.SOLANA_RPC_URL || 'https://mainnet.helius-rpc.com/?api-key=10f7605c-3004-4638-9562-b911c4714150';
 // Guardrail: disable server-funded token deploys unless explicitly enabled
 const ALLOW_SERVER_FUNDED_TOKEN_DEPLOYS = process.env.ALLOW_SERVER_FUNDED_TOKEN_DEPLOYS === 'true';
 
